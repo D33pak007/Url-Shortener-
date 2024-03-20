@@ -58,15 +58,50 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
 - Twitter - [@nestframework](https://twitter.com/nestframework)
+
+
+URL Shortener with JWT Authentication
+This is a NestJS application that provides URL shortening functionality with user authentication using JSON Web Tokens (JWT).
+
+Features
+User registration and login
+Create short URLs
+Retrieve original URLs from short URLs
+Redirect to original URLs when accessing short URLs
+JWT-based authentication for protected routes
+Prerequisites
+Node.js (v14 or higher)
+MongoDB (or another compatible database)
+
+Configure the application:
+Create a .env file in the root directory and provide the following environment variables:
+Replace <your-mongodb-uri> with the connection string for your MongoDB database, and <your-secret-key> with a secret key for JWT signing.
+MONGODB_URI=<your-mongodb-uri>
+JWT_SECRET=<your-secret-key>
+
+The application will start running at http://localhost:3000.
+
+API Endpoints
+Authentication
+
+POST /auth/login: Log in and obtain a JWT token
+
+URL Shortener
+POST /url: Create a new short URL (requires JWT authentication)
+
+GET /url/:shortUrl: Redirect to the original URL associated with the short URL (requires JWT authentication)
+
+GET /url: Get a list of all short URLs created by the authenticated user (requires JWT authentication)
+
+Technologies Used
+NestJS
+MongoDB (with Mongoose)
+JSON Web Tokens (JWT)
+Passport.js
+Contributing
+Contributions are welcome! Please follow the guidelines in the CONTRIBUTING.md file.
 
 ## License
 
